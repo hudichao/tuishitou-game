@@ -37,7 +37,7 @@ var typescriptProject = typescript.createProject({
 
 
 gulp.task("typescript", function () {
-    gulp.src(["./src/ts/**/*.ts"])              // 対象となるTypeScriptファイルを全部指定
+    gulp.src(["./src/ts/**/*.ts", "./typings/**/*.ts"])              // 対象となるTypeScriptファイルを全部指定 ，增加了d.ts 
         .pipe(typescript(typescriptProject))    // プロジェクトを渡す事で差分コンパイル
         .pipe(gulp.dest("./release/js/"))       //指定ディレクトリにJS出力
         .pipe(browser.reload({stream: true}))  //ブラウザを更新
